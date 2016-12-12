@@ -25,10 +25,10 @@
         controller: "UsersController",
         controllerAs: "vm"
       })
-      .state("triumphs", {
-        url: "/triumphs",
-        templateUrl: "/templates/triumphs.html",
-        controller: "TriumphsController",
+      .state("bills", {
+        url: "/bills",
+        templateUrl: "/templates/bills.html",
+        controller: "BillsController",
         controllerAs: "vm"
       });
 

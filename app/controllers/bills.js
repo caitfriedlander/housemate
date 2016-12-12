@@ -39,6 +39,7 @@ var billCreate = function(req, res) {
 
   bill.name      = req.body.name;
   bill.amount    = req.body.amount;
+  bill.date      = req.body.date;
   bill.category  = req.body.category;
 
   bill.save(function(err, savedBill) {
@@ -68,6 +69,7 @@ var billUpdate = function(req, res) {
     // set the new bill information if it exists in the request
     if (req.body.name) bill.name = req.body.name;
     if (req.body.amount) bill.amount = req.body.amount;
+    if (req.body.date) bill.date = req.body.date;
     if (req.body.category) bill.category = req.body.category;
 
     // save the bill

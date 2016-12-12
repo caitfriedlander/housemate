@@ -48,30 +48,35 @@ Bill.remove({}, function(err) {
         { // 0
           name: "Cable",
           amount: "$60",
+          date: "1/1/17",
           category:  "Utility",
           user: users[0]._id
         },
         { // 1
           name: "December Rent",
           amount: "$2000",
+          date: "1/1/17",
           category:  "Rent",
           user: users[1]._id
         },
         { // 2
           name: "Netflix",
           amount: "$10",
+          date: "1/1/17",
           category: "Streaming Service",
           user: users[0]._id
         },
         { // 3
           name: "Water/Trash",
           amount: "$100",
+          date: "1/1/17",
           category: "Utility",
           user: users[3]._id
         },
         { // 4
           name: "Power",
           amount: "$350",
+          date: "1/1/17",
           category: "Utility",
           user: users[2]._id
         }

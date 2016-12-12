@@ -15,6 +15,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
 </head>
 <body ng-controller="MainController as vm" ng-cloak>
+  <ul class="nav nav-tabs">
+    <li role="presentation" ui-sref-active="active">
+      <a ui-sref="homePage">Home</a>
+    </li>
+    <li role="presentation" ui-sref-active="active" ng-hide="vm.isLoggedIn()">
+      <a ui-sref="register">Register</a>
+    </li>
+    <li ng-show="vm.isLoggedIn()">
+      <a class="btn" ng-click="vm.logout()">Logout</a>
+    </li>
+  </ul>
 
   <div class="jumbotron">
     <div class="container">
@@ -33,19 +44,13 @@
   <div class="container">
     <ul class="nav nav-tabs">
       <li role="presentation" ui-sref-active="active">
-        <a ui-sref="homePage">Home</a>
+        <a ui-sref="homePage">Schedule</a>
       </li>
       <li role="presentation" ui-sref-active="active">
-        <a ui-sref="aboutPage">About</a>
-      </li>
-      <li role="presentation" ui-sref-active="active" ng-hide="vm.isLoggedIn()">
-        <a ui-sref="register">Register</a>
+        <a ui-sref="aboutPage">Household</a>
       </li>
       <li role="presentation" ui-sref-active="active" ng-show="vm.isLoggedIn()">
-        <a ui-sref="triumphs">Bills</a>
-      </li>
-      <li ng-show="vm.isLoggedIn()">
-        <a class="btn" ng-click="vm.logout()">Logout</a>
+        <a ui-sref="bills">My Bills</a>
       </li>
     </ul>
 
@@ -69,6 +74,6 @@
   <script src="/controllers/main_controller.js"></script>
   <script src="/controllers/login_controller.js"></script>
   <script src="/controllers/users_controller.js"></script>
-  <script src="/controllers/triumphs_controller.js"></script>
+  <script src="/controllers/bills_controller.js"></script>
 </body>
 </html>

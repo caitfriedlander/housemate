@@ -3,11 +3,11 @@
 
   angular
       .module("housemateApp")
-      .controller("TriumphsController", TriumphsController);
+      .controller("BillsController", BillsController);
 
-  TriumphsController.$inject = ["$state", "userDataService", "$log", "$http"];
+  BillsController.$inject = ["$state", "userDataService", "$log", "$http"];
 
-  function TriumphsController($state, userDataService, $log, $http) {
+  function BillsController($state, userDataService, $log, $http) {
     var vm = this;
 
     vm.user = userDataService.user;
@@ -17,12 +17,14 @@
     vm.newBill = {
       name: "",
       amount: "",
+      date: "",
       category: ""
     };
 
     vm.editBill = {
       name: "",
       amount: "",
+      date: "",
       category: ""
     }
 
@@ -38,7 +40,7 @@
       $http.get('/api/bills').then(function(response) {
         vm.bills = response.data;
       }, function(errRes) {
-        console.error('Error catchin bill!', errRes);
+        console.error('Error catching bill!', errRes);
       });
     }
 
@@ -46,7 +48,7 @@
       $http.delete('/api/bills/' + id).then(function(response) {
         console.log(response);
       }, function(errRes) {
-        console.error('Error deletin bill!', errRes);
+        console.error('Error deleting bill!', errRes);
       }).then(getBills);
     }
 
@@ -57,6 +59,7 @@
           vm.newBill = {
             name: "",
             amount: "",
+            date: "",
             category: ""
           };
         });
@@ -67,19 +70,22 @@
         vm.editBill = {
           name: "",
           amount: "",
+          date: "",
           category: ""
         };
       }, function(errRes) {
-        console.log('Error fixin bill!', errRes);
+        console.log('Error fixing bill!', errRes);
       }).then(getBills);
     }
 
     function resetEditForm() {
       vm.billCategory = '';
       vm.billName = '';
+      vm.billAmount = '';
       vm.editBill = {
         name: "",
         amount: "",
+        date: "",
         category: ""
       };
     }
