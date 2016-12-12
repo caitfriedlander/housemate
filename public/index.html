@@ -25,6 +25,12 @@
     <li ng-show="vm.isLoggedIn()">
       <a class="btn" ng-click="vm.logout()">Logout</a>
     </li>
+    <li role="presentation" ui-sref-active="active">
+      <a ui-sref="aboutPage">Household</a>
+    </li>
+    <li role="presentation" ui-sref-active="active" ng-show="vm.isLoggedIn()">
+      <a ui-sref="bills">My Bills</a>
+    </li>
   </ul>
 
   <div class="jumbotron">
@@ -42,17 +48,6 @@
   </div>
 
   <div class="container">
-    <ul class="nav nav-tabs">
-      <li role="presentation" ui-sref-active="active">
-        <a ui-sref="homePage">Schedule</a>
-      </li>
-      <li role="presentation" ui-sref-active="active">
-        <a ui-sref="aboutPage">Household</a>
-      </li>
-      <li role="presentation" ui-sref-active="active" ng-show="vm.isLoggedIn()">
-        <a ui-sref="bills">My Bills</a>
-      </li>
-    </ul>
 
     <main class="content" ui-view>
       <!-- PAGE TEMPLATES INSERT HERE -->

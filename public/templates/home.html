@@ -20,5 +20,43 @@
 </div>
 
 <div class="container cen-jus" ng-show="vm.isLoggedIn()">
-  <h3>Welcome home {{vm.currentUser.firstName}}!</h3>
+  <div>
+    <br>
+    <h3 class="cen-jus">Welcome Home!</h3>
+    <br>
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img class="about-thumbs-pics" src="/assets/img/logo.png" alt="house">
+          <div class="caption">
+            <p>Household Info</p>
+            <a class="btn btn-default" ui-sref="aboutPage">Household</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img class="about-thumbs-pics" src="/assets/img/roommates.png" alt="roommates">
+          <div class="caption">
+            <p>Housemates</p>
+            <a class="btn btn-default" ui-sref="housematesPage">Housemates</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="thumbnail">
+          <img class="about-thumbs-pics" src="/assets/img/bill.png" alt="bill pay">
+          <div class="caption">
+            <p>Bills To Be Paid</p>
+            <a class="btn btn-success" ui-sref="bills">My Bills</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
