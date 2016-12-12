@@ -22,7 +22,7 @@
   <ul id="bills">
     <li ng-repeat="bill in vm.bills" class="bill-li">
       <br>
-      <strong>{{bill.name}}</strong> - <em>{{bill.category}}</em>
+      <em>{{bill.category}}</em> - <strong>{{bill.name}}</strong> - <strong>{{bill.amount}}</strong>
       <button class="btn btn-danger btn-xs" ng-click="vm.deleteBill(bill._id)">X</button>
       <button class="btn btn-warning btn-xs" ng-click="showme=true">Edit</button>
 
@@ -30,6 +30,9 @@
         <br>
         <div class="form-group">
           <input type="text" name='billName' id="bill-name" placeholder="{{bill.name}}" class="form-control" ng-model="vm.editBill.name" />
+        </div>
+        <div class="form-group">
+          <input type="text" name='billAmount' id="bill-amount" placeholder="{{bill.amount}}" class="form-control" ng-model="vm.editBill.amount" />
         </div>
         <select class="form-control" name="billCategory" id="bill-category" ng-model="vm.editBill.category">
             <option value="Rent">Rent</option>

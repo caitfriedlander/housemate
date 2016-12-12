@@ -42,10 +42,10 @@
         <a ui-sref="register">Register</a>
       </li>
       <li role="presentation" ui-sref-active="active" ng-show="vm.isLoggedIn()">
-        <a ui-sref="triumphs">Triumphs</a>
+        <a ui-sref="triumphs">Bills</a>
       </li>
       <li ng-show="vm.isLoggedIn()">
-        <a class="btn" ng-click="vm.logout()">Logout {{ vm.userService.user.name }}</a>
+        <a class="btn" ng-click="vm.logout()">Logout {{ vm.userService.user.firstName }} + {{ vm.userService.user.lastName }}</a>
       </li>
     </ul>
 
@@ -56,11 +56,7 @@
   </div>
 
   <footer class="container cen-jus">
-      <p>Please post selfies with your catches on<strong>
-          <a href="https://www.facebook.com/unclederry/timeline">
-              Uncle Derry's Selfie Emporium!
-          </a>
-      </strong></p>
+      <p>Footer Goes Here</p>
   </footer>
 
   <!-- Angular scripts -->

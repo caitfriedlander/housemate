@@ -9,7 +9,8 @@ var User        = require('../models/user.js'),
 //||||||||||||||||||||||||||--
 var userCreate = function(req, res) {
     var user          = new User();   // create a new instance of the User model
-    user.name         = req.body.name;  // set the users name (comes from the request)
+    user.firstName         = req.body.firstName;  // set the users firstName (comes from the request)
+    user.lastName         = req.body.lastName;  // set the users lastName (comes from the request)
     user.email        = req.body.email; // set the users email (comes from the request)
     user.phoneNumber  = req.body.phoneNumber;  // set the users phone number (comes from the request)
     user.password     = req.body.password;  // set the users password (comes from the request)
@@ -25,10 +26,11 @@ var userCreate = function(req, res) {
         }
 
           var token = jwt.sign({
-            email:       newUser.email,
-            phoneNumber: newUser.phoneNumber,
-            name:        newUser.name,
-            _id:         newUser._id
+            email:       user.email,
+            firstName:   user.firstName,
+            lastName:    user.lastName,
+            phoneNumber: user.phoneNumber,
+            _id:         user._id
           }, superSecret, {
             expiresIn: '30d' // expires in 30 days
           });
@@ -76,7 +78,8 @@ var userUpdate = function(req, res) {
         if (err) res.send(err);
 
         // set the new user information if it exists in the request
-        if (req.body.name)        user.name        = req.body.name;
+        if (req.body.firstName)        user.firstName        = req.body.firstName;
+        if (req.body.lastName)        user.lastName        = req.body.lastName;
         if (req.body.email)        user.email        = req.body.email;
         if (req.body.phoneNumber) user.phoneNumber = req.body.phoneNumber;
         if (req.body.password)    user.password    = req.body.password;

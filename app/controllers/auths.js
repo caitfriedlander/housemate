@@ -11,7 +11,7 @@ var userAuth = function (req, res, next) {
   // find the user
   User.findOne({
       email: req.body.email
-    }).select('email password name').exec(function(err, user) {
+    }).select('email password phoneNumber fisrtName lastName').exec(function(err, user) {
 
       if (err) throw err;
 
@@ -35,8 +35,10 @@ var userAuth = function (req, res, next) {
           // if user is found and password is right
           // create a token
           var token = jwt.sign({
-            email: user.email,
-            name:        user.name,
+            email:       user.email,
+            firstName:   user.firstName,
+            lastName:    user.lastName,
+            phoneNumber: user.phoneNumber,
             _id:         user._id
           }, superSecret, {
             expiresIn: '30d' // expires in 30 days

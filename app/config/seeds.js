@@ -5,25 +5,29 @@ var Bill = require('../models/bill'),
 
 var users = [
   { // 0
-    name: "Earl Url",
+    firstName: "Earl",
+    lastName: "Url",
     email: "abc@123.com",
     phoneNumber: "4442831923",
     password: "fr1ensh1pw1ns"
   },
   { // 1
-    name: "Mary Funnelcake",
+    firstName: "Mary",
+    lastName: "Funnelcake",
     email: "abcd@123.com",
     phoneNumber: "3235558743",
     password: "tuberculos1s"
   },
   { // 2
-    name: "Ayn Rand Paul Walker",
+    firstName: "Ayn Rand",
+    lastName: "Paul Walker",
     email: "abcde@123.com",
     phoneNumber: "1001011101",
     password: "objecteav8ism"
   },
   { // 3
-    name: "Dude McDude",
+    firstName: "Dude",
+    lastName: "McDude",
     email: "abcdef@123.com",
     phoneNumber: "5554445555",
     password: "abc123"
