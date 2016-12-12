@@ -1,4 +1,4 @@
-var User        = require('../models/user.js'),
+var User        = require('../models/user'),
     bcrypt      = require('bcrypt-nodejs'),
     jwt         = require('jsonwebtoken'),
     env         = require('../config/environment'),

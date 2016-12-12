@@ -1,4 +1,4 @@
-var User        = require('../models/user.js'),
+var User        = require('../models/user'),
     bcrypt      = require('bcrypt-nodejs'),
     jwt         = require('jsonwebtoken'),
     env         = require('../config/environment'),
@@ -9,8 +9,8 @@ var User        = require('../models/user.js'),
 //||||||||||||||||||||||||||--
 var userCreate = function(req, res) {
     var user          = new User();   // create a new instance of the User model
-    user.firstName         = req.body.firstName;  // set the users firstName (comes from the request)
-    user.lastName         = req.body.lastName;  // set the users lastName (comes from the request)
+    user.firstName    = req.body.firstName;  // set the users firstName (comes from the request)
+    user.lastName     = req.body.lastName;  // set the users lastName (comes from the request)
     user.email        = req.body.email; // set the users email (comes from the request)
     user.phoneNumber  = req.body.phoneNumber;  // set the users phone number (comes from the request)
     user.password     = req.body.password;  // set the users password (comes from the request)

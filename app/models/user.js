@@ -1,14 +1,15 @@
 var mongoose     = require('mongoose'),
     Schema       = mongoose.Schema,
-    Bill         = require('./bill.js'),
+    Bill         = require('./bill'),
     bcrypt       = require('bcrypt-nodejs');
 
 //||||||||||||||||||||||||||--
 // CREATE USER SCHEMA
 //||||||||||||||||||||||||||--
 var UserSchema   = new Schema({
-  name:        { type: String, required: true },
-  email:       { type: String, required: true },
+  firstName:        { type: String, required: true },
+  lastName:        { type: String, required: true },
+  email:       { type: String, required: true, unique: true },
   phoneNumber: {
                  type: String,
                  required: true,
