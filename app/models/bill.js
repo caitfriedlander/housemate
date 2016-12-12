@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 // Create a schema of your model
 var billSchema = new mongoose.Schema({
   name:       { type: String, required: true },
-  amount:     { type: String, required: true },
+  amount:     { type: Number, required: true },
   date:       { type: String, required: true },
   category:   { type: String, required: true },
   user:       { type: mongoose.Schema.Types.ObjectId, ref:'User' }

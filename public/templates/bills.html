@@ -8,7 +8,7 @@
   <ul id="bills">
     <li ng-repeat="bill in vm.bills" class="bill-li">
       <br>
-      <strong>{{bill.name}}</strong> - <strong>{{bill.amount}}</strong> - <em>{{bill.category}}</em> - <stong>Due: {{bill.date}}</stong>
+      <strong>{{bill.name}}</strong> - <strong>${{bill.amount}}</strong> - <em>{{bill.category}}</em> - <stong>Due: {{bill.date}}</stong>
       <button class="btn btn-danger btn-xs" ng-click="vm.deleteBill(bill._id)">X</button>
       <button class="btn btn-warning btn-xs" ng-click="showme=true">Edit</button>
 
@@ -40,7 +40,7 @@
       <input type="text" name='bill[name]' id="bill-name" placeholder="Bill Name" class="form-control" ng-model="vm.newbill.name" />
     </div>
     <div class="form-group">
-      <input type="text" name='bill[amount]' id="bill-amount" placeholder="$100" class="form-control" ng-model="vm.newbill.amount" />
+      <input type="text" name='bill[amount]' id="bill-amount" placeholder="Bill Amount" class="form-control" ng-model="vm.newbill.amount" />
     </div>
     <div> Date Dropdown goes here</div>
     <select class="form-control" name="bill[category]" id="bill-category" ng-model="vm.newBill.category">
