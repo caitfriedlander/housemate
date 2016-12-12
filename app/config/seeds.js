@@ -1,33 +1,37 @@
 var mongoose = require('./database');
 
-var Fish = require('../models/fish'),
+var Bill = require('../models/bill'),
     User = require('../models/user');
 
 var users = [
   { // 0
     name: "Earl Url",
+    email: "abc@123.com",
     phoneNumber: "4442831923",
     password: "fr1ensh1pw1ns"
   },
   { // 1
     name: "Mary Funnelcake",
+    email: "abcd@123.com",
     phoneNumber: "3235558743",
     password: "tuberculos1s"
   },
   { // 2
     name: "Ayn Rand Paul Walker",
+    email: "abcde@123.com",
     phoneNumber: "1001011101",
     password: "objecteav8ism"
   },
   { // 3
-    name: "Dude",
+    name: "Dude McDude",
+    email: "abcdef@123.com",
     phoneNumber: "5554445555",
     password: "abc123"
   }
 ];
 
 // remove any fish or users in the database
-Fish.remove({}, function(err) {
+Bill.remove({}, function(err) {
   if (err) console.log(err);
 
   User.remove({}, function(err) {
@@ -36,41 +40,41 @@ Fish.remove({}, function(err) {
     // create users
     User.create(users, function(err, users) {
 
-      var fishes = [
+      var bills = [
         { // 0
-          name: "Michelin Tire",
-          category:  "Trash",
+          name: "Cable",
+          category:  "Utility",
           user: users[0]._id
         },
         { // 1
-          name: "Tabby (Derry's Dog)",
-          category:  "Corpse",
+          name: "December Rent",
+          category:  "Rent",
           user: users[1]._id
         },
         { // 2
-          name: "Trout",
-          category: "Fish",
+          name: "Netflix",
+          category: "Streaming Service",
           user: users[0]._id
         },
         { // 3
-          name: "Flounder",
-          category: "Fish",
+          name: "Water/Trash",
+          category: "Utility",
           user: users[3]._id
         },
         { // 4
-          name: "Left Boot",
-          category: "Clothing",
+          name: "Power",
+          category: "Utility",
           user: users[2]._id
         }
       ];
 
-      // create default fishes
-      Fish.create(fishes, function(err, fishes) {
+      // create default bills
+      Bill.create(bills, function(err, bills) {
 
         if (err) {
           console.log(err);
         } else{
-          console.log(`Database seeded with ${users.length} users and ${fishes.length} fishes`);
+          console.log(`Database seeded with ${users.length} users and ${bills.length} bills`);
 
           // disconnect db
           mongoose.connection.close(function(err) {

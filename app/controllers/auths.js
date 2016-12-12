@@ -61,7 +61,7 @@ var userAuth = function (req, res, next) {
 //||||||||||||||||||||||||||--
 var tokenVerify = function(req, res, next) {
   // do logging
-  console.log('Somebody just accessed the Fishin Triumphs API!');
+  console.log('Housemate API has been accessed!');
 
   // check header or url parameters or post parameters for token
   var token = req.body.token || req.query.token || req.headers['x-access-token'];

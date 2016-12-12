@@ -1,41 +1,44 @@
 <div class="cen-jus">
 
   <br>
-  <h3>Uncle Derry's Fishin' Triumphs</h3>
-  <h6>Post Your Catches Here! Please call me.</h6>
+  <h3>House Bills</h3>
+  <h6>Track household bills here.</h6>
   <br>
-  <form id="new-fish" class="form-inline">
+  <form id="new-bill" class="form-inline">
     <div class="form-group">
-      <input type="text" name='fish[name]' id="fish-name" placeholder="Get Specific!" class="form-control" ng-model="vm.newFish.name" />
+      <input type="text" name='bill[name]' id="bill-name" placeholder="Bill Name" class="form-control" ng-model="vm.newbill.name" />
     </div>
-    <select class="form-control" name="fish[category]" id="fish-category" ng-model="vm.newFish.category">
-        <option value="Fish">Fish</option>
-        <option value="Clothing">Clothing</option>
-        <option value="Corpse">Corpse</option>
-        <option value="Trash">Trash</option>
+    <select class="form-control" name="bill[category]" id="bill-category" ng-model="vm.newBill.category">
+        <option value="Rent">Rent</option>
+        <option value="Utility">Utility</option>
+        <option value="Grocery">Grocery</option>
+        <option value="Streaming Service">Streaming Service</option>
+        <option value="Other">Other</option>
+
     </select>
-    <button class="btn btn-success btn-sm submit-login-button" type="submit" ng-click="vm.postFish()">Save Mah' Catch!</button>
+    <button class="btn btn-success btn-sm submit-login-button" type="submit" ng-click="vm.postBill()">Add Bill</button>
   </form>
 
-  <ul id="fishes">
-    <li ng-repeat="fish in vm.fishes" class="fish-li">
+  <ul id="bills">
+    <li ng-repeat="bill in vm.bills" class="bill-li">
       <br>
-      <strong>{{fish.name}}</strong> - <em>{{fish.category}}</em>
-      <button class="btn btn-danger btn-xs" ng-click="vm.deleteFish(fish._id)">X</button>
+      <strong>{{bill.name}}</strong> - <em>{{bill.category}}</em>
+      <button class="btn btn-danger btn-xs" ng-click="vm.deleteBill(bill._id)">X</button>
       <button class="btn btn-warning btn-xs" ng-click="showme=true">Edit</button>
 
       <form class="form-inline" ng-show="showme" id="edit-form">
         <br>
         <div class="form-group">
-          <input type="text" name='fishName' id="fish-name" placeholder="{{fish.name}}" class="form-control" ng-model="vm.editFish.name" />
+          <input type="text" name='billName' id="bill-name" placeholder="{{bill.name}}" class="form-control" ng-model="vm.editBill.name" />
         </div>
-        <select class="form-control" name="fishCategory" id="fish-category" ng-model="vm.editFish.category">
-            <option value="Fish">Fish</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Corpse">Corpse</option>
-            <option value="Trash">Trash</option>
+        <select class="form-control" name="billCategory" id="bill-category" ng-model="vm.editBill.category">
+            <option value="Rent">Rent</option>
+            <option value="Utility">Utility</option>
+            <option value="Grocery">Grocery</option>
+            <option value="Streaming Service">Streaming Service</option>
+            <option value="Other">Other</option>
         </select>
-        <button class="btn btn-success btn-xs" ng-click="vm.updateFish(fish._id)">Save</button>
+        <button class="btn btn-success btn-xs" ng-click="vm.updateBill(bill._id)">Save</button>
         <button class="btn btn-default btn-xs" ng-click="showme=false; vm.resetEditForm();">Cancel</button>
 
       </form>

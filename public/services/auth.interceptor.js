@@ -1,6 +1,6 @@
 (function() {
 
-  angular.module('fishinApp')
+  angular.module("housemateApp")
          .factory('authInterceptor', authInterceptor);
 
   authInterceptor.$inject = ["$q", "$location", "authToken"];

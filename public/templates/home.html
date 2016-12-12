@@ -1,19 +1,18 @@
 <div class="cen-jus" ng-hide="vm.isLoggedIn()">
   <br>
-  <h3>Welcome Friend!</h3>
-  <h6>Please call me.</h6>
+  <h3>Welcome Home!</h3>
+  <h4>Let Housemate take care of the details so you and your housemates can live peacefully.</h4>
   <br>
-  <p><strong>To maximally enjoy your time at <em>Uncle Derry's Fishin' Friends</em>
-      please <a ui-sref-active="active" ui-sref="register">register</a> or login:</strong></p>
+  <p><strong>To access your Home Page, please <a ui-sref-active="active" ui-sref="register">register</a> or login:</strong></p>
   <br>
   <form class="form-inline" ng-submit="vm.login()">
     <div class="form-group">
-      <label for="inputPhone1">Phone Number</label>
-      <input type="text" id="inputPhone1" class="form-control" placeholder="Your Digits!" ng-model="vm.loginData.phoneNumber" required />
+      <label for="inputEmail1">Email</label>
+      <input type="text" id="inputEmail1" class="form-control" placeholder="Email" ng-model="vm.loginData.email" required />
     </div>
     <div class="form-group">
       <label for="inputPword1">Password</label>
-      <input type="password" id="inputPword1" class="form-control" placeholder="Save your info!" ng-model="vm.loginData.password" required />
+      <input type="password" id="inputPword1" class="form-control" placeholder="Password" ng-model="vm.loginData.password" required />
     </div>
     <button class="btn btn-success submit-login-button" type="submit">Login!</button>
   </form>
@@ -22,5 +21,5 @@
 
 <div class="container cen-jus" ng-show="vm.isLoggedIn()">
   <h3>Welcome {{vm.currentUser.name}}!</h3>
-  <h6>I'll call you at {{vm.currentUser.phoneNumber}}</h6>
+  <h6>I'll call you at {{vm.currentUser.email}}</h6>
 </div>

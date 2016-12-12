@@ -1,3 +1,3 @@
-# [Housemate App](https://murmuring-basin-8090.herokuapp.com/#/)
+# [Housemate App]
 
 ## MEAN App for improving the modern roommate experience!

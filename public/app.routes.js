@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("fishinApp")
+    .module("housemateApp")
     .config(AppRoutes);
 
   AppRoutes.$inject = ["$stateProvider", "$urlRouterProvider"];

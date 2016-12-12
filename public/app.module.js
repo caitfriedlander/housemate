@@ -1,5 +1,5 @@
 (function() {
-  angular.module('fishinApp', ["ui.router"])
+  angular.module("housemateApp", ["ui.router"])
 
     .config(function($httpProvider) {
 
