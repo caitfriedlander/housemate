@@ -30,8 +30,13 @@
         templateUrl: "/templates/bills.html",
         controller: "BillsController",
         controllerAs: "vm"
+      })
+      .state("housematesPage", {
+        url: "/housemates",
+        templateUrl: "/templates/housemates.html",
+        controller: "HomesController",
+        controllerAs: "vm"
       });
-
     $urlRouterProvider.otherwise("/");
   }
 

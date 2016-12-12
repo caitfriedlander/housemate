@@ -5,9 +5,8 @@
   <h5>Track monthly household bills and use Paypal or Venmo to make sure everything (and everyone) gets paid on time!</h5>
   <br>
 
-  <ul id="bills">
-    <li ng-repeat="bill in vm.bills" class="bill-li">
-      <br>
+  <ul id="bills" class="group-item">
+    <li ng-repeat="bill in vm.bills" class="bill-li list-group-item">
       <strong>{{bill.name}}</strong> - <strong>${{bill.amount}}</strong> - <em>{{bill.category}}</em> - <stong>Due: {{bill.date}}</stong>
       <button class="btn btn-danger btn-xs" ng-click="vm.deleteBill(bill._id)">X</button>
       <button class="btn btn-warning btn-xs" ng-click="showme=true">Edit</button>
