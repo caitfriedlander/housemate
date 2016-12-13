@@ -15,9 +15,11 @@
         controller: "LoginController",
         controllerAs: "vm"
       })
-      .state("aboutPage", {
-        url: "/about",
-        templateUrl:  "/templates/about.html"
+      .state("householdPage", {
+        url: "/household",
+        templateUrl:  "/templates/household.html",
+        controller: "HouseholdsController",
+        controllerAs: "vm"
       })
       .state("register", {
         url: "/register",
@@ -34,7 +36,7 @@
       .state("housematesPage", {
         url: "/housemates",
         templateUrl: "/templates/housemates.html",
-        controller: "HomesController",
+        controller: "UsersController",
         controllerAs: "vm"
       });
     $urlRouterProvider.otherwise("/");

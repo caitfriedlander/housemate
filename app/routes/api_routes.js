@@ -4,7 +4,9 @@ var express = require('express'),
 // Require bills controller
 var BillsCtrl = require('../controllers/bills'),
     UsersCtrl  = require('../controllers/users'),
-    AuthsCtrl  = require('../controllers/auths');
+    AuthsCtrl  = require('../controllers/auths'),
+    HouseholdCtrl = require('../controllers/households');
+
 
 
 // GET CURRENT USER - WE'RE DOING THIS IN THE BROWSER THOUGH!
@@ -30,5 +32,14 @@ router.get('/bills',        AuthsCtrl.tokenVerify, BillsCtrl.billIndex);
 router.post('/bills',       AuthsCtrl.tokenVerify, BillsCtrl.billCreate);
 router.put('/bills/:id',    AuthsCtrl.tokenVerify, BillsCtrl.billUpdate);
 router.delete('/bills/:id', AuthsCtrl.tokenVerify, BillsCtrl.billDelete);
+
+//||||||||||||||||||||||||||--
+// HOUSEHOLD CRUD SERVICES
+//||||||||||||||||||||||||||--
+router.get('/households',         HouseholdCtrl.householdIndex);
+router.post('/households',        HouseholdCtrl.householdCreate);
+router.get('/households/:id',     HouseholdCtrl.householdShow);
+router.put('/households/:id',     HouseholdCtrl.householdUpdate);
+router.delete('/households/:id',  HouseholdCtrl.householdDelete);
 
 module.exports = router;
