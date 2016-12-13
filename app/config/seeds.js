@@ -151,18 +151,15 @@ Household.remove({}, function(err) {
               console.log(err);
             } else {
               console.log(`Database seeded with ${users.length} users, ${households.length} households, and ${bills.length} bills`);
+             mongoose.connection.close(function(err) {
+                if (err) console.log(err);
+                process.exit(0);
+              });
             }
-          })
-
-          })
-          // disconnect db
-          mongoose.connection.close(function(err) {
-            if (err) console.log(err);
-            process.exit(0);
           });
-        }
-        process.exit();
-      });
+        });
+      }
+    });
     });
   });
 });

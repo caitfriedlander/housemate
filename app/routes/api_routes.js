@@ -28,7 +28,7 @@ router.delete('/users/:id',  AuthsCtrl.tokenVerify, UsersCtrl.userDelete);
 // BILLS CRUD SERVICES
 //||||||||||||||||||||||||||--
 router.get('/bills/:id',    AuthsCtrl.tokenVerify, BillsCtrl.billShow);
-router.get('/bills',        AuthsCtrl.tokenVerify, BillsCtrl.billIndex);
+router.get('/bills',         BillsCtrl.billIndex);
 router.post('/bills',       AuthsCtrl.tokenVerify, BillsCtrl.billCreate);
 router.put('/bills/:id',    AuthsCtrl.tokenVerify, BillsCtrl.billUpdate);
 router.delete('/bills/:id', AuthsCtrl.tokenVerify, BillsCtrl.billDelete);

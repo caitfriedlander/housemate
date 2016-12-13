@@ -46,11 +46,16 @@ var householdShow = function(req, res, next){
 //||||||||||||||||||||||||||--
 var householdIndex = function(req, res, next) {
   if (req.query.code){
-    Household.find({code: req.query.code}, function(err, household) {
+    Household.find({code: req.query.code}).populate('users').exec(function(err, household) {
       if (err) {
         res.send(err);
       }
-      res.json(household[0])
+      household[0].bills(function(err, bills) {
+        if (err) return res.json(err);
+
+        console.log(bills);
+        res.json({success: true, household: household[0], bills: bills})
+      })
     })
   } else {
     Household.find({}, function(err, households) {
