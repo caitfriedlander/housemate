@@ -10,7 +10,8 @@ var householdCreate = function(req, res) {
     household.propertyManager   = req.body.propertyManager; // set the household propertyManager (comes from the request)
     household.maintenance       = req.body.maintenance;  // set the household maintenance (comes from the request)
     household.code              = Math.random().toString(36).substring(2,9);
-    household.users             = []
+    household.users             = [];
+    household.bills             = [];
 
     household.save(function(err, newUser) {
         if (err) {

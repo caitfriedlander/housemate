@@ -1,6 +1,6 @@
 // Require mongoose to create a model.
 var mongoose = require('mongoose'),
-    User     = require('./user.js');
+    Household     = require('./household.js');
 
 // Create a schema of your model
 var billSchema = new mongoose.Schema({
@@ -8,7 +8,7 @@ var billSchema = new mongoose.Schema({
   amount:     { type: Number, required: true },
   date:       { type: String, required: true },
   category:   { type: String, required: true },
-  user:       { type: mongoose.Schema.Types.ObjectId, ref:'User' }
+  household:  { type: mongoose.Schema.Types.ObjectId, ref:'Household' }
 });
 
 // Create the model using your schema.

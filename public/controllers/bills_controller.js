@@ -5,12 +5,12 @@
       .module("housemateApp")
       .controller("BillsController", BillsController);
 
-  BillsController.$inject = ["$state", "userDataService", "$log", "$http"];
+  BillsController.$inject = ["$state", "housholdDataService", "$log", "$http"];
 
-  function BillsController($state, userDataService, $log, $http) {
+  function BillsController($state, housholdDataService, $log, $http) {
     var vm = this;
 
-    vm.user = userDataService.user;
+    vm.houshold = housholdDataService.houshold;
 
     vm.bills = [];
 

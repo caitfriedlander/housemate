@@ -72,7 +72,7 @@ Household.remove({}, function(err) {
             website: 'abcproperty.com'
           },
           code: 'qlocb34',
-          users: []
+          users: [users[0]._id, users[1]._id]
         },{ //1
           address: '1 West St Apt 4 Arlington, VA 80000',
           landlord: {
@@ -97,7 +97,7 @@ Household.remove({}, function(err) {
             website: '123property.com'
           },
           code: 'uf5bp9y',
-          users: ''
+          users: [users[2]._id, users[3]._id]
         }
       ]
 
@@ -107,45 +107,44 @@ Household.remove({}, function(err) {
         if (err) {
           console.log(err);
         } else {
-          Bills.remove({}, function(err, bills) {
+          Bill.remove({}, function(err, bills) {
             var bills = [
               { // 0
                 name: "Cable",
                 amount: 60,
                 date: "1/1/17",
                 category:  "Utility",
-                user: users[0]._id
+                household: households[0]._id
               },
               { // 1
                 name: "December Rent",
                 amount: 2000,
                 date: "1/1/17",
                 category:  "Rent",
-                user: users[1]._id
+                household: households[1]._id
               },
               { // 2
                 name: "Netflix",
                 amount: 10,
                 date: "1/1/17",
                 category: "Streaming Service",
-                user: users[0]._id
+                household: households[0]._id
               },
               { // 3
                 name: "Water/Trash",
                 amount: 100,
                 date: "1/1/17",
                 category: "Utility",
-                user: users[3]._id
+                household: households[1]._id
               },
               { // 4
                 name: "Power",
                 amount: 350,
                 date: "1/1/17",
                 category: "Utility",
-                user: users[2]._id
+                household: households[0]._id
               }
             ];
-          })
 
           Bill.create(bills, function(err, bills) {
             if (err) {
@@ -153,6 +152,8 @@ Household.remove({}, function(err) {
             } else {
               console.log(`Database seeded with ${users.length} users, ${households.length} households, and ${bills.length} bills`);
             }
+          })
+
           })
           // disconnect db
           mongoose.connection.close(function(err) {
