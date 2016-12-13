@@ -1,0 +1,43 @@
+<div class="cen-jus">
+  <br>
+  <h3>Edit Your Account Information</h3>
+  <br>
+  <form ng-submit="vm.updateUser()">
+    <div class="row">
+      <label for="inputName1" class="left-jus col-md-offset-3"> First Name</label>
+      <div class="form-group col-md-6 col-md-offset-3">
+        <input type="text" id="inputName1" class="form-control" placeholder="First Name" ng-model="vm.userData.firstName" required />
+      </div>
+    </div>
+    <div class="row">
+      <label for="inputName2" class="left-jus col-md-offset-3">Last Name</label>
+      <div class="form-group col-md-6 col-md-offset-3">
+        <input type="text" id="inputName2" class="form-control" placeholder="Last Name" ng-model="vm.userData.lastName" required />
+      </div>
+    </div>
+    <div class="row">
+      <label for="inputEmail1" class="left-jus col-md-offset-3">Email</label>
+      <div class="form-group col-md-6 col-md-offset-3">
+        <input type="text" id="inputEmail1" class="form-control" placeholder="Email" ng-model="vm.userData.email" required />
+      </div>
+    </div>
+    <div class="row">
+      <label for="inputPhone1" class="left-jus col-md-offset-3">Phone Number</label>
+      <div class="form-group col-md-6 col-md-offset-3">
+        <input type="text" id="inputPhone1" class="form-control" placeholder="Phone Number" ng-model="vm.userData.phoneNumber" required />
+      </div>
+    </div>
+    <div class="row">
+      <label for="inputPword1" class="left-jus col-md-offset-3">Password</label>
+      <div class="form-group col-md-6 col-md-offset-3">
+        <input type="password" id="inputPword1" class="form-control" placeholder="Password" ng-model="vm.userData.password" required />
+      </div>
+    </div>
+    <div class="row">
+      <label for="inputAddress1" class="left-just col-md-offset-3">Address</label>
+      <div class="form-group col-md-6 col-md-offset-3">
+        <input type="text" id="inputAddress1" class="form-control" placeholder="Address" ng-model="vm.usrData.address">
+    </div>
+    <button class="btn btn-success submit-login-button" type="submit">Save</button>
+  </form>
+</div>

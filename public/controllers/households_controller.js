@@ -68,7 +68,7 @@
       users: []
     };
 
-    vm.getHousehold       = getHousehold;
+    vm.getHouseholds       = getHouseholds;
     vm.deleteHousehold    = deleteHousehold;
     vm.updateHousehold    = updateHousehold;
     vm.postHousehold      = postHousehold;
