@@ -41,6 +41,7 @@ var billCreate = function(req, res) {
   bill.amount    = req.body.amount;
   bill.date      = req.body.date;
   bill.category  = req.body.category;
+  bill.household = req.body.user;
 
   bill.save(function(err, savedBill) {
     if (err) {

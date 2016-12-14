@@ -5,12 +5,28 @@
       .module("housemateApp")
       .controller("BillsController", BillsController);
 
-  BillsController.$inject = ["$state", "householdDataService", "$log", "$http"];
+  BillsController.$inject = ["$state", "userDataService", "householdDataService", "$log", "$http"];
 
-  function BillsController($state, householdDataService, $log, $http) {
+  function BillsController($state, userDataService, householdDataService, $log, $http) {
     var vm = this;
 
-    vm.houshold = householdDataService.household;
+    if (!householdDataService.household.code) {
+      userDataService.get(userDataService.user._id)
+        .then(function(response) {
+          householdDataService.household = response.data.household;
+          vm.household = householdDataService.household;
+          return vm.household;
+        }, function(errRes) {
+          console.error('Error catching household!', errRes);
+        }).then(function(household) {
+          getBills();
+        }, function(err) {
+          console.error(err);
+        });
+    } else {
+      vm.household = householdDataService.household;
+      getBills();
+    }
 
     vm.bills = [];
 
@@ -18,7 +34,8 @@
       name: "",
       amount: "",
       date: "",
-      category: ""
+      category: "",
+      household: vm.household
     };
 
     vm.editBill = {
@@ -28,19 +45,34 @@
       category: ""
     }
 
-    vm.getBills     = getBills;
+    vm.getBills      = getBills;
     vm.deleteBill    = deleteBill;
     vm.updateBill    = updateBill;
     vm.postBill      = postBill;
     vm.resetEditForm = resetEditForm;
 
-    vm.getBills();
-
     function getBills() {
-      $http.get('/api/bills').then(function(response) {
-        vm.bills = response.data;
-      }, function(errRes) {
-        console.error('Error catching bill!', errRes);
+      // var billArr = [];
+      $http.get('/api/households/?code=' + vm.household.code).then(function(response) {
+        vm.bills = response.data.bills;
+        // console.log(billArr)
+        // return userDataService.get(userDataService.user._id) })
+        //   .then(function(response) {
+        //     vm.household = response.data.household;
+        //   }, function(errRes) {
+        //     console.error('Error catching household!', errRes);
+        //   })
+        //   .then(function(response) {
+        //     function householdFilter(bills) {
+        //         console.log(bills)
+        //         console.log(vm.household._id)
+        //         return vm.bills.household === vm.household._id;
+        //       }
+        //     console.log(vm.billArr)
+        //     vm.bills = vm.billArr.filter(householdFilter)
+        //     console.log(vm.bills)
+        }, function(errRes) {
+          console.error('Error catching bill!', errRes);
       });
     }
 

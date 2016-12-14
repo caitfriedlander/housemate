@@ -12,7 +12,7 @@
 
     vm.user = userDataService.user;
 
-    vm.household = {};
+    vm.household;
 
     vm.newHousehold = {
       address: '',
