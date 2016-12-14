@@ -55,22 +55,6 @@
       // var billArr = [];
       $http.get('/api/households/?code=' + vm.household.code).then(function(response) {
         vm.bills = response.data.bills;
-        // console.log(billArr)
-        // return userDataService.get(userDataService.user._id) })
-        //   .then(function(response) {
-        //     vm.household = response.data.household;
-        //   }, function(errRes) {
-        //     console.error('Error catching household!', errRes);
-        //   })
-        //   .then(function(response) {
-        //     function householdFilter(bills) {
-        //         console.log(bills)
-        //         console.log(vm.household._id)
-        //         return vm.bills.household === vm.household._id;
-        //       }
-        //     console.log(vm.billArr)
-        //     vm.bills = vm.billArr.filter(householdFilter)
-        //     console.log(vm.bills)
         }, function(errRes) {
           console.error('Error catching bill!', errRes);
       });
@@ -85,14 +69,17 @@
     }
 
     function postBill() {
+      vm.newBill.household = vm.household._id;
+      console.log(vm.newBill);
       $http.post('/api/bills', vm.newBill)
-        .then(getBills)
         .then(function(response) {
+          vm.bills.push(vm.newBill);
           vm.newBill = {
             name: "",
             amount: "",
             date: "",
-            category: ""
+            category: "",
+            household: vm.household
           };
         });
     }

@@ -37,21 +37,26 @@ var billIndex = function(req, res) {
 var billCreate = function(req, res) {
   var bill       = new Bill();   // create a new instance of the Bill model
 
+  console.log("=========================");
+  console.log("POST BILL", req.body);
+  console.log("=========================");
+
   bill.name      = req.body.name;
   bill.amount    = req.body.amount;
   bill.date      = req.body.date;
   bill.category  = req.body.category;
-  bill.household = req.body.user;
+  bill.household = req.body.household;
 
   bill.save(function(err, savedBill) {
     if (err) {
       res.send(err)
     }
 
-    // log a message
-    console.log("Bill created!")
-    // return the bill
-    res.json(savedBill);
+    savedBill.populate('household').exec(function(err, billNHouse) {
+      if (err) res.json(err);
+      // return the bill
+      res.json(billNHouse);
+    })
   });
 };
 
