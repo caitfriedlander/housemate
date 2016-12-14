@@ -19,7 +19,9 @@
         <div class="form-group">
           <input type="text" name='billAmount' id="bill-amount" placeholder="{{bill.amount}}" class="form-control" ng-model="vm.editBill.amount" />
         </div>
-        <div> Date Dropdown goes here</div>
+        <div class="form-group">
+          <input type="text" name='bill[date]' id="bill-date" placeholder="1/11/11" class="form-control" ng-model="vm.newbill.date" />
+        </div>
         <select class="form-control" name="billCategory" id="bill-category" ng-model="vm.editBill.category">
             <option value="Rent">Rent</option>
             <option value="Utility">Utility</option>
@@ -41,7 +43,9 @@
     <div class="form-group">
       <input type="text" name='bill[amount]' id="bill-amount" placeholder="Bill Amount" class="form-control" ng-model="vm.newbill.amount" />
     </div>
-    <div> Date Dropdown goes here</div>
+    <div class="form-group">
+      <input type="text" name='bill[date]' id="bill-date" placeholder="1/11/11" class="form-control" ng-model="vm.newbill.date" />
+    </div>
     <select class="form-control" name="bill[category]" id="bill-category" ng-model="vm.newBill.category">
         <option value="Rent">Rent</option>
         <option value="Utility">Utility</option>
