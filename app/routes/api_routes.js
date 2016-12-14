@@ -39,7 +39,7 @@ router.delete('/bills/:id', AuthsCtrl.tokenVerify, BillsCtrl.billDelete);
 router.get('/households',         HouseholdCtrl.householdIndex);
 router.post('/households',        HouseholdCtrl.householdCreate);
 router.get('/myhousehold',        AuthsCtrl.tokenVerify, HouseholdCtrl.householdShow);
-router.put('/households/',        HouseholdCtrl.householdUpdate);
+router.put('/households/:id',        HouseholdCtrl.householdUpdate);
 router.delete('/households/:id',  HouseholdCtrl.householdDelete);
 
 module.exports = router;

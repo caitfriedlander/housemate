@@ -150,12 +150,10 @@
             email: '',
             address: '',
             website: ''
-          },
-          code: '',
-          users: []
+          }
         };
       }, function(errRes) {
-        console.log('Error fixing bill!', errRes);
+        console.log('Error fixing household!', errRes);
       }).then(getHouseholds);
     }
 

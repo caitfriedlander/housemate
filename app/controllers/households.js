@@ -89,9 +89,21 @@ var householdUpdate = function(req, res) {
 
     // set the new household information if it exists in the request
     if (req.body.address) household.address = req.body.address;
-    if (req.body.landlord) household.landlord = req.body.landlord;
-    if (req.body.propertyManager) household.propertyManager = req.body.propertyManager;
-    if (req.body.maintenance) household.maintenance = req.body.maintenance;
+    if (req.body.landlord.name) household.landlord.name = req.body.landlord.name;
+    if (req.body.landlord.phoneNumber) household.landlord.phoneNumber = req.body.landlord.phoneNumber;
+    if (req.body.landlord.address) household.landlord.address = req.body.landlord.address;
+    if (req.body.landlord.email) household.landlord.email = req.body.landlord.email;
+    if (req.body.landlord.website) household.landlord.website = req.body.landlord.website;
+    if (req.body.propertyManager.name) household.propertyManager.name = req.body.propertyManager.name;
+    if (req.body.propertyManager.phoneNumber) household.propertyManager.phoneNumber = req.body.propertyManager.phoneNumber;
+    if (req.body.propertyManager.address) household.propertyManager.address = req.body.propertyManager.address;
+    if (req.body.propertyManager.email) household.propertyManager.email = req.body.propertyManager.email;
+    if (req.body.propertyManager.website) household.propertyManager.website = req.body.propertyManager.website;
+    if (req.body.maintenance.name) household.maintenance.name = req.body.maintenance.name;
+    if (req.body.maintenance.phoneNumber) household.maintenance.phoneNumber = req.body.maintenance.phoneNumber;
+    if (req.body.maintenance.address) household.maintenance.address = req.body.maintenance.address;
+    if (req.body.maintenance.email) household.maintenance.email = req.body.maintenance.email;
+    if (req.body.maintenance.website) household.maintenance.website = req.body.maintenance.website;
     if (req.body.roommate) household.users.push(req.body.roommate);
 
     // save the household
