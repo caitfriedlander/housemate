@@ -1,35 +1,35 @@
 <div ng-controller="HouseholdsController as vm">
   <br>
   <h3 class="cen-jus">About My Home</h3>
-  <h4 class="cen-jus"> My address goes here.</h4>
+  <h4 class="cen-jus"> {{vm.household.address}}</h4>
   <br>
   <div class="row cen-jus">
 
     <div class="col-md-4">
       <h4>Landlord</h4>
-      <p>Name: {{vm.households.landlord.name}}</p>
-      <p>Phone: {{vm.households.landlord.phone}}</p>
-      <p>Address: {{vm.households.landlord.address}}</p>
-      <p>Email: {{vm.households.landlord.email}}</p>
-      <p>Website: {{vm.households.landlord.website}}</p>
+      <p>Name: {{vm.household.landlord.name}}</p>
+      <p>Phone: {{vm.household.landlord.phoneNumber}}</p>
+      <p>Address: {{vm.household.landlord.address}}</p>
+      <p>Email: {{vm.household.landlord.email}}</p>
+      <p>Website: {{vm.household.landlord.website}}</p>
     </div>
 
     <div class="col-md-4">
       <h4>Property manager</h4>
-      <p>Name: {{vm.propertyManager.name}}</p>
-      <p>Phone: {{vm.propertyManager.phone}}</p>
-      <p>Address: {{vm.propertyManager.address}}</p>
-      <p>Email: {{vm.propertyManager.email}}</p>
-      <p>Website: {{vm.propertyManager.website}}</p>
+      <p>Name: {{vm.household.propertyManager.name}}</p>
+      <p>Phone: {{vm.household.propertyManager.phoneNumber}}</p>
+      <p>Address: {{vm.household.propertyManager.address}}</p>
+      <p>Email: {{vm.household.propertyManager.email}}</p>
+      <p>Website: {{vm.household.propertyManager.website}}</p>
     </div>
 
     <div class="col-md-4">
       <h4>Maintenance</h4>
-      <p>Name: {{vm.maintenance.name}}</p>
-      <p>Phone: {{vm.maintenance.phone}}</p>
-      <p>Address: {{vm.maintenance.address}}</p>
-      <p>Email: {{vm.maintenance.email}}</p>
-      <p>Website: {{vm.maintenance.website}}</p>
+      <p>Name: {{vm.household.maintenance.name}}</p>
+      <p>Phone: {{vm.household.maintenance.phoneNumber}}</p>
+      <p>Address: {{vm.household.maintenance.address}}</p>
+      <p>Email: {{vm.household.maintenance.email}}</p>
+      <p>Website: {{vm.household.maintenance.website}}</p>
     </div>
 
   </div>

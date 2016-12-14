@@ -77,11 +77,12 @@
     vm.getHouseholds();
 
     function getHouseholds() {
-      $http.get('/api/households').then(function(response) {
-        vm.households = response.data;
-      }, function(errRes) {
-        console.error('Error catching household!', errRes);
-      });
+      userDataService.get(userDataService.user._id)
+        .then(function(response) {
+          vm.household = response.data.household;
+        }, function(errRes) {
+          console.error('Error catching household!', errRes);
+        });
     }
 
     function deleteHousehold(id) {
