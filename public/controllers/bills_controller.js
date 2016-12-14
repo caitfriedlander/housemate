@@ -70,7 +70,6 @@
 
     function postBill() {
       vm.newBill.household = vm.household._id;
-      console.log(vm.newBill);
       $http.post('/api/bills', vm.newBill)
         .then(function(response) {
           vm.bills.push(vm.newBill);

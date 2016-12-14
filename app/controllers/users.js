@@ -55,6 +55,7 @@ var userShow = function(req, res) {
         user.household(function(err, household) {
           // return that user
           res.json({user, household})
+          console.log({user, household})
         })
   });
 };
