@@ -3,9 +3,9 @@
   <h3 class="cen-jus">Housemates</h3>
   <br>
   <div class="row">
-    <div ng-repeat="user in vm.Users">
-      <div>Roommate Name: {{vm.user.firstName}} {{vm.user.lastName}}</div>
-      <div>Roommate Phone: {{vm.user.phoneNumber}}</div>
-      <div>Roommate Email: {{vm.user.email}}</div>
+    <div ng-repeat="user in vm.Users.users">
+      <div>Roommate Name: {{vm.users.user.firstName}} {{vm.user.lastName}}</div>
+      <div>Roommate Phone: {{vm.users.user.phoneNumber}}</div>
+      <div>Roommate Email: {{vm.users.user.email}}</div>
     </div>
 </div>

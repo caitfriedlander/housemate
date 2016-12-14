@@ -28,14 +28,19 @@ var householdCreate = function(req, res) {
 //||||||||||||||||||||||||||--
 // GET HOUSEHOLD
 //||||||||||||||||||||||||||--
+
+// get the user id from the token
+// get the household for that user id - You may have to look up a custom mongoose query
+// res.json that household
 var householdShow = function(req, res, next){
   var id = req.params.id;
+  // var user = req.token.user.id;
 
   Household.findById(id, function(err, bill){
     if (err) {
       res.send(err);
     }
-
+    // var myhouse = household.id where id ===
     // return that bill as JSON
     res.json(household);
   });

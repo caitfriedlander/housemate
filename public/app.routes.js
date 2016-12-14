@@ -36,7 +36,7 @@
       .state("housematesPage", {
         url: "/housemates",
         templateUrl: "/templates/housemates.html",
-        controller: "HouseholdsController",
+        controller: "HousematesController",
         controllerAs: "vm"
       });
     $urlRouterProvider.otherwise("/");

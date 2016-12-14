@@ -52,8 +52,10 @@ var userShow = function(req, res) {
   User.findById(req.params.id, function(err, user) {
         if (err) res.send(err);
 
-        // return that user
-        res.json(user);
+        user.household(function(err, household) {
+          // return that user
+          res.json({user, household})
+        })
   });
 };
 

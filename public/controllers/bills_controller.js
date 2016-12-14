@@ -10,7 +10,7 @@
   function BillsController($state, householdDataService, $log, $http) {
     var vm = this;
 
-    vm.houshold = housholdDataService.houshold;
+    vm.houshold = householdDataService.household;
 
     vm.bills = [];
 
