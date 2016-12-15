@@ -79,7 +79,7 @@ var billUpdate = function(req, res) {
     if (req.body.category) bill.category = req.body.category;
 
     // save the bill
-    bill.save(function(err, updatedBill) {
+    bill.save().populate('household').exec(function(err, updatedBill) {
       if (err) {
         res.send(err);
       }

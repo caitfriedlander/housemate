@@ -1,16 +1,39 @@
 (function() {
+  "use strict";
+
   angular.module("housemateApp")
          .controller('UsersController', UsersController);
 
-  UsersController.$inject = ['$state', 'authService', 'userDataService', '$log', 'authToken'];
+  UsersController.$inject = ['$state', 'authService', 'userDataService', 'householdDataService', '$log', 'authToken', '$http'];
 
-  function UsersController($state, authService, userDataService, $log, authToken) {
+  function UsersController($state, authService, userDataService, householdDataService, $log, authToken, $http) {
     var vm = this;
+
+
+    if (!householdDataService.household.code) {
+      userDataService.get(userDataService.user._id)
+        .then(function(response) {
+          householdDataService.household = response.data.household;
+          vm.household = householdDataService.household;
+          return vm.household;
+        }, function(errRes) {
+          console.error('Error catching household!', errRes);
+        }).then(function(household) {
+          getUsers();
+        }, function(err) {
+          console.error(err);
+        });
+    } else {
+      vm.household = householdDataService.household;
+      getUsers();
+    }
 
     vm.currentUser = userDataService.user;
     // attaching functions to controller
     vm.createUser = createUser;
+    vm.getUsers = getUsers;
 
+    vm.getUsers()
 
     // defining function declarations
     function createUser() {
@@ -29,5 +52,13 @@
         });
 
     };
+
+    function getUsers() {
+      $http.get('/api/households/?code=' + vm.household.code).then(function(response) {
+        vm.users = response.data.users;
+        }, function(errRes) {
+          console.error('Error catching bill!', errRes);
+      });
+    }
   };
 })();

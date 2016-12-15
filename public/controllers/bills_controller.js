@@ -85,15 +85,16 @@
 
     function updateBill(id) {
       $http.put('/api/bills/' + id, vm.editBill).then(function(response) {
+        console.log(response)
         vm.editBill = {
-          name: "",
-          amount: "",
-          date: "",
-          category: ""
+          name: response.data.name,
+          amount: response.data.amount,
+          date: response.data.date,
+          category: response.data.category
         };
       }, function(errRes) {
         console.log('Error fixing bill!', errRes);
-      }).then(getBills);
+      });
     }
 
     function resetEditForm() {
