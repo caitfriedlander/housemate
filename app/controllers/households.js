@@ -11,20 +11,8 @@ var householdCreate = function(req, res) {
     household.maintenance                 = {}
     household.address                                                               = req.body.address;
     if (req.body.landlord) household.landlord = req.body.landlord;
-    // if (req.body.landlord.phoneNumber) household.landlord.phoneNumber               = req.body.landlord.phoneNumber;
-    // if (req.body.landlord.address) household.landlord.address                       = req.body.landlord.address;
-    // if (req.body.landlord.email) household.landlord.email                           = req.body.landlord.email;
-    // if (req.body.landlord.website) household.landlord.website                       = req.body.landlord.website;
     if (req.body.propertyManager) household.propertyManager  = req.body.propertyManager;
-    // if (req.body.propertyManager.phoneNumber) household.propertyManager.phoneNumber = req.body.propertyManager.phoneNumber;
-    // if (req.body.propertyManager.address) household.propertyManager.address         = req.body.propertyManager.address;
-    // if (req.body.propertyManager.email) household.propertyManager.email             = req.body.propertyManager.email;
-    // if (req.body.propertyManager.website) household.propertyManager.website         = req.body.propertyManager.website;
-    if (req.body.maintenance.name) household.maintenance                     = req.body.maintenance;
-    // if (req.body.maintenance.phoneNumber) household.maintenance.phoneNumber         = req.body.maintenance.phoneNumber;
-    // if (req.body.maintenance.address) household.maintenance.address                 = req.body.maintenance.address;
-    // if (req.body.maintenance.email) household.maintenance.email                     = req.body.maintenance.email;
-    // if (req.body.maintenance.website) household.maintenance.website                 = req.body.maintenance.website;
+    if (req.body.maintenance) household.maintenance                     = req.body.maintenance;
     household.code                                       = Math.random().toString(36).substring(2,9);
     household.users.push(req.body.user);
     // household.bills                       = [];
@@ -120,7 +108,7 @@ var householdUpdate = function(req, res) {
     if (req.body.maintenance.address) household.maintenance.address = req.body.maintenance.address;
     if (req.body.maintenance.email) household.maintenance.email = req.body.maintenance.email;
     if (req.body.maintenance.website) household.maintenance.website = req.body.maintenance.website;
-    if (req.body.roommate) household.users.push(req.body.roommate);
+    if (req.body.user) household.users.push(req.body.user);
 
     // save the household
     household.save(function(err, updatedHousehold) {

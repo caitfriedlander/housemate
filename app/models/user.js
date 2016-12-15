@@ -13,7 +13,6 @@ var UserSchema   = new Schema({
   phoneNumber: {
                  type: String,
                  required: true,
-                 index: { unique: true },
                  minlength: 7,
                  maxlength: 10
   },
