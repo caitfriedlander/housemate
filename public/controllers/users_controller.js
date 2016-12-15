@@ -1,14 +1,14 @@
 (function() {
   "use strict";
 
-  angular.module("housemateApp")
-         .controller('UsersController', UsersController);
+  angular
+      .module("housemateApp")
+      .controller('UsersController', UsersController);
 
   UsersController.$inject = ['$state', 'authService', 'userDataService', 'householdDataService', '$log', 'authToken', '$http'];
 
   function UsersController($state, authService, userDataService, householdDataService, $log, authToken, $http) {
     var vm = this;
-
 
     if (!householdDataService.household.code) {
       userDataService.get(userDataService.user._id)
@@ -33,8 +33,6 @@
     vm.createUser = createUser;
     vm.getUsers = getUsers;
 
-    vm.getUsers()
-
     // defining function declarations
     function createUser() {
       vm.message = '';
@@ -55,9 +53,9 @@
 
     function getUsers() {
       $http.get('/api/households/?code=' + vm.household.code).then(function(response) {
-        vm.users = response.data.users;
+        vm.users = response.data.household.users;
         }, function(errRes) {
-          console.error('Error catching bill!', errRes);
+          console.error('Error catching user!', errRes);
       });
     }
   };

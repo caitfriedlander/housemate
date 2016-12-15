@@ -52,7 +52,6 @@
     vm.resetEditForm = resetEditForm;
 
     function getBills() {
-      // var billArr = [];
       $http.get('/api/households/?code=' + vm.household.code).then(function(response) {
         vm.bills = response.data.bills;
         }, function(errRes) {
