@@ -52,12 +52,6 @@ UserSchema.methods.comparePassword = function(password) {
   return bcrypt.compareSync(password, user.password);
 };
 
-// Access user's bills
-// UserSchema.methods.bills = function(callback) {
-//   mongoose.model('Bill').find({user: this._id}, function(err, bills) {
-//     callback(err, bills);
-//   });
-// };
 
 UserSchema.methods.household = function(callback) {
   mongoose.model('Household').find({users: { $in: [ this._id ] }}, function(err, households) {

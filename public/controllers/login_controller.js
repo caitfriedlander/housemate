@@ -21,7 +21,7 @@
       authService.login(vm.loginData.email, vm.loginData.password)
         .then(function(res) {
           $log.log(res.data);
-          $state.go('bills');
+          $state.go('households');
         });
     };
 

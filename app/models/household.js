@@ -4,12 +4,8 @@ var mongoose = require('mongoose'),
     Bill     = require('./bill.js');
 
 var managementSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  phoneNumber: {
-    type: String,
-    index: { unique: true },
-    minlength: 7,
-    maxlength: 15 },
+  name: String,
+  phoneNumber: String,
   email: String,
   address: String,
   website: String

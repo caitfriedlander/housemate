@@ -1,0 +1,87 @@
+<div>
+  <br>
+  <h3 class="cen-jus">First housemate to sign up?</h3>
+  <div class="row cen-jus">
+    <button class="btn btn-warning btn-xs cen-jus" ng-click="showme=true">Make My Household!</button>
+    <br>
+    <form class="form-inline" ng-show="showme" id="household-form">
+      <br>
+      <div class="form-group">
+      <label>Address:</label>
+        <input type="text" name='householdAddress' id="household-address" class="form-control" ng-model="vm.newHousehold.address" />
+      </div>
+      <br>
+      <div class="col-md-4">
+        <h4>Landlord</h4>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" name='landlordName' id="landlord-name" class="form-control" ng-model="vm.newHousehold.landlord.name" />
+        </div>
+        <div class="form-group">
+          <label>Phone:</label>
+          <input type="text" name='landlordPhoneNumber' id="landlord-phoneNumber" class="form-control" ng-model="vm.newHousehold.landlord.phoneNumber" />
+        </div>
+        <div class="form-group">
+          <label>Address:</label>
+          <input type="text" name='landlordAddress' id="landlord-address" class="form-control" ng-model="vm.newHousehold.landlord.address" />
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="text" name='landlordEmail' id="landlord-email" class="form-control" ng-model="vm.newHousehold.landlord.email" />
+        </div>
+        <div class="form-group">
+          <label>Website:</label>
+          <input type="text" name='landlordWebsite' id="landlord-website" class="form-control" ng-model="vm.newHousehold.landlord.website" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h4>Property Manager</h4>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" name='propertyManagerName' id="propertyManager-name" class="form-control" ng-model="vm.newHousehold.propertyManager.name" />
+        </div>
+        <div class="form-group">
+          <label>Phone:</label>
+          <input type="text" name='propertyManagerPhoneNumber' id="propertyManager-phoneNumber" class="form-control" ng-model="vm.newHousehold.propertyManager.phoneNumber" />
+        </div>
+        <div class="form-group">
+          <label>Address:</label>
+          <input type="text" name='propertyManagerAddress' id="propertyManager-address" class="form-control" ng-model="vm.newHousehold.propertyManager.address" />
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="text" name='propertyManagerEmail' id="propertyManager-email" class="form-control" ng-model="vm.newHousehold.propertyManager.email" />
+        </div>
+        <div class="form-group">
+          <label>Website:</label>
+          <input type="text" name='propertyManagerWebsite' id="propertyManager-website" class="form-control" ng-model="vm.newHousehold.propertyManager.website" />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h4>Maintenance</h4>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" name='maintenanceName' id="maintenance-name" class="form-control" ng-model="vm.newHousehold.maintenance.name" />
+        </div>
+        <div class="form-group">
+          <label>Phone:</label>
+          <input type="text" name='maintenancePhoneNumber' id="maintenance-phoneNumber" class="form-control" ng-model="vm.newHousehold.maintenance.phoneNumber" />
+        </div>
+        <div class="form-group">
+          <label>Address:</label>
+          <input type="text" name='maintenanceAddress' id="maintenance-address" class="form-control" ng-model="vm.newHousehold.maintenance.address" />
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="text" name='maintenanceEmail' id="maintenance-email" class="form-control" ng-model="vm.newHousehold.maintenance.email" />
+        </div>
+        <div class="form-group">
+          <label>Website:</label>
+          <input type="text" name='maintenanceWebsite' id="maintenance-website" class="form-control" ng-model="vm.newHousehold.maintenance.website" />
+        </div>
+      </div>
+      <br>
+      <button class="btn btn-success btn-xs" ng-click="vm.postHousehold(vm.household._id)">Save</button>
+    </form>
+  </div>
+</div>

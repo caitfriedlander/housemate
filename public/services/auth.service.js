@@ -54,6 +54,7 @@
       var token = authToken.getToken().split('.')[1];
       var user = JSON.parse($window.atob(token));
       userDataService.user = user;
+      console.log(user);
       return user;
     };
 

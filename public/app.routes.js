@@ -21,10 +21,16 @@
         controller: "HouseholdsController",
         controllerAs: "vm"
       })
+      .state("householdSignUpPage", {
+        url: "/newhousehold",
+        templateUrl:  "/templates/householdsignup.html",
+        controller: "CreateHouseholdsController",
+        controllerAs: "vm"
+      })
       .state("register", {
         url: "/register",
         templateUrl: "/templates/register.html",
-        controller: "UsersController",
+        controller: "CreateUserController",
         controllerAs: "vm"
       })
       .state("bills", {

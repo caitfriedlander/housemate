@@ -29,27 +29,27 @@
     }
 
     vm.currentUser = userDataService.user;
-    // attaching functions to controller
-    vm.createUser = createUser;
+
+    // vm.createUser = createUser;
     vm.getUsers = getUsers;
 
     // defining function declarations
-    function createUser() {
-      vm.message = '';
-      // use the create function in the userService
-      userDataService.create(vm.userData)
-        .then(function(data) {
-          vm.userData = {};
-          vm.message = data.data.message;
-          authToken.setToken(data.data.token);
-          userDataService.user = data.data.user;
-          $state.go('homePage');
-        }, function(err) {
-          $log.error(err);
-          $state.go('homePage');
-        });
+    // function createUser() {
+    //   vm.message = '';
+    //   // use the create function in the userService
+    //   userDataService.create(vm.userData)
+    //     .then(function(data) {
+    //       vm.userData = {};
+    //       vm.message = data.data.message;
+    //       authToken.setToken(data.data.token);
+    //       userDataService.user = data.data.user;
+    //       $state.go('homePage');
+    //     }, function(err) {
+    //       $log.error(err);
+    //       $state.go('homePage');
+    //     });
 
-    };
+    // };
 
     function getUsers() {
       $http.get('/api/households/?code=' + vm.household.code).then(function(response) {
