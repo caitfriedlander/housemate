@@ -10,23 +10,23 @@
   function BillsController($state, userDataService, householdDataService, $log, $http) {
     var vm = this;
 
-    if (!householdDataService.household.code) {
-      userDataService.get(userDataService.user._id)
-        .then(function(response) {
-          householdDataService.household = response.data.household;
-          vm.household = householdDataService.household;
-          return vm.household;
-        }, function(errRes) {
-          console.error('Error catching household!', errRes);
-        }).then(function(household) {
-          getBills();
-        }, function(err) {
-          console.error(err);
-        });
-    } else {
-      vm.household = householdDataService.household;
-      getBills();
-    }
+    // if (!householdDataService.household.code) {
+    //   userDataService.get(userDataService.user._id)
+    //     .then(function(response) {
+    //       householdDataService.household = response.data.household;
+    //       vm.household = householdDataService.household;
+    //       return vm.household;
+    //     }, function(errRes) {
+    //       console.error('Error catching household!', errRes);
+    //     }).then(function(household) {
+    //       getBills();
+    //     }, function(err) {
+    //       console.error(err);
+    //     });
+    // } else {
+    //   vm.household = householdDataService.household;
+    //   getBills();
+    // }
 
     vm.bills = [];
 
@@ -51,12 +51,16 @@
     vm.postBill      = postBill;
     vm.resetEditForm = resetEditForm;
 
+    vm.getBills();
+
     function getBills() {
-      $http.get('/api/households/?code=' + vm.household.code).then(function(response) {
-        vm.bills = response.data.bills;
-        }, function(errRes) {
-          console.error('Error catching bill!', errRes);
-      });
+      householdDataService.mine()
+        .then(function(response) {
+        console.log(response);
+        vm.bill = response.data.bills
+      }, function(err) {
+        console.error(err);
+      })
     }
 
     function deleteBill(id) {
@@ -68,7 +72,7 @@
     }
 
     function postBill() {
-      vm.newBill.household = vm.household._id;
+      vm.newBill.household = householdDataService.mine();
       $http.post('/api/bills', vm.newBill)
         .then(function(response) {
           vm.bills.push(vm.newBill);

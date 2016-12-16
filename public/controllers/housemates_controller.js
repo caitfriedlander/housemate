@@ -16,7 +16,7 @@
     function getUsers() {
       userDataService.get(userDataService.user._id)
         .then(function(response) {
-          vm.user = response.data.user;
+          vm.users = response.data.users;
           console.log(vm.user)
         }, function(errRes) {
           console.error('Error catching user!', errRes);

@@ -76,6 +76,7 @@ var usersAll = function(req, res) {
 //||||||||||||||||||||||||||--
 var userUpdate = function(req, res) {
   User.findById(req.params.id, function(err, user) {
+      console.log("Whu?");
 
         if (err) res.send(err);
 

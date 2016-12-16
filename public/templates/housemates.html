@@ -7,6 +7,25 @@
       <div>Roommate Name: {{user.firstName}} {{user.lastName}}</div>
       <div>Roommate Phone: {{user.phoneNumber}}</div>
       <div>Roommate Email: {{user.email}}</div>
-      <div>Paypal Link Goes Here</div>
+      <button class="btn btn-warning btn-xs" ng-click="showme=true">Edit</button>
+
+      <form class="form-inline" ng-show="showme" id="edit-form">
+        <br>
+        <div class="form-group">
+          <input type="text" name='userFirstName' id="user-firstname" placeholder="{{user.firstName}}" class="form-control" ng-model="vm.editUser.firstName" />
+        </div>
+        <div class="form-group">
+          <input type="text" name='userLastName' id="user-lastname" placeholder="{{user.lastName}}" class="form-control" ng-model="vm.editUser.lastName" />
+        </div>
+        <div class="form-group">
+          <input type="text" name='userPhoneNumber' id="user-phoneNumber" placeholder="{{user.phoneNumber}}" class="form-control" ng-model="vm.editUser.phoneNumber" />
+        </div>
+        <div class="form-group">
+          <input type="text" name='userEmail' id="user-email" placeholder="{{user.email}}" class="form-control" ng-model="vm.editUser.email" />
+        </div>
+        <button class="btn btn-success btn-xs" ng-click="vm.updateUser(vm.user._id)">Save</button>
+        <button class="btn btn-default btn-xs" ng-click="showme=false; vm.resetEditForm();">Cancel</button>
+
+      </form>
     </div>
 </div>

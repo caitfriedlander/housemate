@@ -16,7 +16,7 @@
         controllerAs: "vm"
       })
       .state("householdPage", {
-        url: "/household",
+        url: "/myhousehold",
         templateUrl:  "/templates/household.html",
         controller: "HouseholdsController",
         controllerAs: "vm"

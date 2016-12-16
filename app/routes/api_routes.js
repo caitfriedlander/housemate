@@ -37,6 +37,7 @@ router.delete('/bills/:id', AuthsCtrl.tokenVerify, BillsCtrl.billDelete);
 // HOUSEHOLD CRUD SERVICES
 //||||||||||||||||||||||||||--
 router.get('/households',         HouseholdCtrl.householdIndex);
+router.get('/myhousehold',        AuthsCtrl.tokenVerify, HouseholdCtrl.myHousehold);
 router.post('/households',        HouseholdCtrl.householdCreate);
 router.get('/households/:id',         AuthsCtrl.tokenVerify, HouseholdCtrl.householdShow);
 router.put('/households/:id',     HouseholdCtrl.householdUpdate);

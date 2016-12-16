@@ -5,41 +5,14 @@
       .module("housemateApp")
       .controller("HouseholdsController", HouseholdsController);
 
-  HouseholdsController.$inject = ["$state", "userDataService", "$log", "$http"];
+  HouseholdsController.$inject = ["$state", "householdDataService", "userDataService", "$log", "$http"];
 
-  function HouseholdsController($state, userDataService, $log, $http) {
+  function HouseholdsController($state, householdDataService, userDataService, $log, $http) {
     var vm = this;
 
     vm.user = userDataService.user;
 
     vm.household;
-
-    // vm.newHousehold = {
-    //   address: '',
-    //   landlord: {
-    //     name: '',
-    //     phoneNumber: '',
-    //     email: '',
-    //     address: '',
-    //     website: ''
-    //   },
-    //   propertyManager: {
-    //     name: '',
-    //     phoneNumber: '',
-    //     email: '',
-    //     address: '',
-    //     website: ''
-    //   },
-    //   maintenance: {
-    //     name: '',
-    //     phoneNumber: '',
-    //     email: '',
-    //     address: '',
-    //     website: ''
-    //   },
-    //   code: '',
-    //   users: []
-    // };
 
     vm.editHousehold = {
       address: '',
@@ -109,12 +82,11 @@
     vm.getHouseholds();
 
     function getHouseholds() {
-      userDataService.get(userDataService.user._id)
+      householdDataService.mine()
         .then(function(response) {
-          vm.household = response.data.household;
-        }, function(errRes) {
-          console.error('Error catching household!', errRes);
-        });
+        console.log(response.data);
+        vm.household = response.data.household
+      })
     }
 
     function deleteHousehold(id) {

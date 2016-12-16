@@ -1,5 +1,6 @@
 var Household   = require('../models/household')
 var User       = require('../models/user')
+var mongoose = require('mongoose')
 
 //||||||||||||||||||||||||||--
 // CREATE HOUSEHOLD
@@ -29,6 +30,22 @@ var householdCreate = function(req, res) {
 
 };
 
+////////////////////////
+// My Household
+//////////////////////
+
+var myHousehold = function (req, res, next) {
+  var userId = req.decoded._id
+  Household.findOne({ users: userId })
+    .populate('users')
+    .exec()
+    .then(function (household) {
+      household.bills(function(err, bills) {
+        res.json({household, bills})
+      })
+    })
+}
+
 //||||||||||||||||||||||||||--
 // GET HOUSEHOLD
 //||||||||||||||||||||||||||--
@@ -54,6 +71,7 @@ var householdShow = function(req, res, next){
 // GET HOUSEHOLDS
 //||||||||||||||||||||||||||--
 var householdIndex = function(req, res, next) {
+  console.log(req.query.code)
   if (req.query.code){
     Household.find({code: req.query.code}).populate('users').exec(function(err, household) {
       if (err) {
@@ -147,5 +165,6 @@ module.exports = {
   householdShow:     householdShow,
   householdUpdate:   householdUpdate,
   householdDelete:   householdDelete,
-  householdIndex:    householdIndex
+  householdIndex:    householdIndex,
+  myHousehold: myHousehold
 };

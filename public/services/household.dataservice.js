@@ -8,9 +8,11 @@
   householdDataService.$inject = ['$http'];
 
   function householdDataService($http) {
-    var householdFactory = {
-      household: {}
-    };
+    var householdFactory = {}
+
+    householdFactory.mine = function () {
+      return $http.get("/api/myhousehold")
+    }
 
     // get a single household
     householdFactory.get = function(id) {

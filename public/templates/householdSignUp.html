@@ -84,4 +84,12 @@
       <button class="btn btn-success btn-xs" ng-click="vm.postHousehold(vm.household._id)">Save</button>
     </form>
   </div>
+  <h3 class="cen-jus">Have a household code already?</h3>
+  <div class="row cen-jus">
+    <button class="btn btn-warning btn-xs cen-jus" ng-click="show=true">Enter Code!</button>
+    <form class="form-inline" ng-show="show" id="household-code">
+      <label>Code:</label>
+      <input type="text" name='householdCode' id="code" class="form-control" ng-model="vm.newHousehold.maintenance.phoneNumber" />
+    </form>
+  </div>
 </div>

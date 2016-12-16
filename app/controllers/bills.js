@@ -1,5 +1,6 @@
 // Require the model/s you're controlling
 var Bill = require("../models/bill");
+var Household = require("../models/household")
 
 //||||||||||||||||||||||||||--
 //  GET BILL
@@ -45,7 +46,7 @@ var billCreate = function(req, res) {
   bill.amount    = req.body.amount;
   bill.date      = req.body.date;
   bill.category  = req.body.category;
-  bill.household = req.body.household;
+  bill.household = req.body.household._id;
 
   bill.save(function(err, savedBill) {
     if (err) {

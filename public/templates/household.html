@@ -33,6 +33,12 @@
     </div>
 
   </div>
+  <div class="cen-jus">
+    <button class="btn btn-info btn-xs cen-jus" ng-click="show=true">Add New Housemate!</button>
+  </div>
+  <div class="row cen-jus" ng-show="show">
+    <div> Send this code to your housemates to add them to your household: <strong>{{vm.household.code}}</strong></div>
+  </div>
   <div class="row cen-jus">
     <button class="btn btn-warning btn-xs cen-jus" ng-click="showme=true">Edit Household Info</button>
     <br>
